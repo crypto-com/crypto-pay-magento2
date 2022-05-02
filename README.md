@@ -5,7 +5,7 @@
 This module requires the following:
 
 * Magento 2.x
-* [Crypto.com Pay for Business](https://merchant.crypto.com/) account - [Sign Up](https://merchant.crypto.com/users/sign_up?ref=Prestashop_Pay_Merchant)
+* [Crypto.com Pay for Business](https://merchant.crypto.com/) account - [Sign Up](https://merchant.crypto.com/users/sign_up?ref=Magento2_Pay_Merchant)
 
 ## Setup
 
