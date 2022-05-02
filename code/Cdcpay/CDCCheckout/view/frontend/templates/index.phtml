@@ -1,0 +1,27 @@
+<?php
+$config = $block->getLayout()->createBlock(\Magento\Config\Block\System\Config\Form::class);
+$configValue = $config->getConfigValue('web/secure/base_url');
+$env = $config->getConfigValue('payment/cdccheckout/cdcpay_endpoint');
+extract($_GET);
+?>
+
+<h2 id = "cdcpay-header">Thank you for your purchase.</h2>
+
+<div id = "success-cdcpay-page">
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="checkout-success">
+    <?php if (isset($order_id)) :?>
+            <p><?php echo  'Your order # is: <b>'.$order_id.'</b> '?></p>
+            <p><?php echo  'We\'ll email you an order confirmation with details and tracking info. '?></p>
+    <?php endif;?>
+
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="/"><span><?= $block->escapeHtml(__('Continue Shopping')) ?></span></a>
+        </div>
+    </div>
+</div>
+</div>
+`
+<!--end page to show with redirect-->

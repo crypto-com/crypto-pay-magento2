@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Cdcpay\CDCCheckout\Api\IpnManagementInterface" type="Cdcpay\CDCCheckout\Model\IpnManagement"/>
+	<preference for="Cdcpay\CDCCheckout\Api\ModalManagementInterface" type="Cdcpay\CDCCheckout\Model\ModalManagement"/>
+    <preference for="Magento\Quote\Model\QuoteRepository\Plugin\AccessChangeQuoteControl" type="Cdcpay\CDCCheckout\Model\AccessChangeQuoteControl"/>
+
+</config>

@@ -1,0 +1,25 @@
+{
+    "name": "cdcpay/module-cdccheckout",
+    "description": "",
+    "type": "magento2-module",
+    "license": "mit",
+    "version":"6.13.0",
+    "authors": [
+        {
+            "email": "integrations@cdcpay.com",
+            "name": "Cdcpay"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "~7.0.13||~7.1.0||~7.2.0||~7.3.0||~7.4.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Cdcpay\\CDCCheckout\\": ""
+        }
+    }
+}
