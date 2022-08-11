@@ -125,6 +125,33 @@ class CDCRedirect implements ObserverInterface
         $storeManager = $this->_storeManagerInterface;
         return $storeManager->getStore()->getBaseUrl();
     }
+
+    public function getCustomer($order) {
+        $customer = (new \stdClass());
+        $customer->name = $order->getBillingAddress()->getFirstName() . ' ' . $order->getBillingAddress()->getLastName();
+        $customer->email = $order->getCustomerEmail();
+        $customer_details = (new \stdClass());
+
+        $shipping_details = (new \stdClass());
+        $shipping_details->address = $order->getShippingAddress()->getStreet();;
+        $shipping_details->city = $order->getShippingAddress()->getCity();
+        $shipping_details->country = $order->getShippingAddress()->getCountryId();
+        $shipping_details->postal_code = $order->getShippingAddress()->getPostcode();
+        $shipping_details->phone = $order->getShippingAddress()->getTelephone();
+
+        $billing_details = (new \stdClass());
+        $billing_details->address = $order->getBillingAddress()->getStreet();;
+        $billing_details->city = $order->getBillingAddress()->getCity();
+        $billing_details->country = $order->getBillingAddress()->getCountryId();
+        $billing_details->postal_code = $order->getBillingAddress()->getPostcode();
+        $billing_details->phone = $order->getBillingAddress()->getTelephone();
+
+        $customer_details->shipping_details = $shipping_details;
+        $customer_details->billing_details = $billing_details;
+
+        $customer->customer_details = $customer_details;
+        return $customer;
+    }
     
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
@@ -166,6 +193,7 @@ class CDCRedirect implements ObserverInterface
             $userSession = $this->_customerSession;
 
             $buyerInfo = (new \stdClass());
+            $buyerInfo->customer = $this->getCustomer($order);
             
             $buyerInfo->name = $order->getBillingAddress()->getFirstName() . ' ' . $order->getBillingAddress()->getLastName();
             $buyerInfo->email = $order->getCustomerEmail();
