@@ -193,7 +193,6 @@ class CDCRedirect implements ObserverInterface
             $userSession = $this->_customerSession;
 
             $buyerInfo = (new \stdClass());
-            $buyerInfo->customer = $this->getCustomer($order);
             
             $buyerInfo->name = $order->getBillingAddress()->getFirstName() . ' ' . $order->getBillingAddress()->getLastName();
             $buyerInfo->email = $order->getCustomerEmail();
@@ -210,6 +209,7 @@ class CDCRedirect implements ObserverInterface
             setcookie('buyer_telephone', $billingAddress['telephone'] , time() + (86400 * 30), "/"); // 86400 = 1 day
 
             $params->metadata = $buyerInfo;
+            $params->customer = $this->getCustomer($order);
             $params->order_id = trim($order_id_long);
 
             setcookie('oar_order_id', $order_id_long, time() + (86400 * 30), "/"); // 86400 = 1 day
