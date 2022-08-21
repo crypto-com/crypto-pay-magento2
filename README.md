@@ -9,8 +9,8 @@ This module requires the following:
 
 ## Setup
 
-1. Download the module zip package (code -> Download ZIP)
-2. Upload all files to your Magento installation path (/code/Cdcpay in zip -> /app/code/Cdcpay in Magento server)
+1. Download the module zip package in [Releases](https://github.com/crypto-com/crypto-pay-magento2/releases) page.
+2. Extract and upload all files to your Magento 2 installation path (/code/Cdcpay in zip -> /app/code/Cdcpay in Magento server)
 3. Login to your server, and in the root of your Magento2 install, run the following commands:
 
 ```
@@ -30,4 +30,5 @@ php bin/magento cache:flush
 
 ## Support
 
-THE PLUGIN IS STILL UNDER DEVELOPMENT. IT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+* Visit our [Official Website](https://crypto.com/pay-merchant?utm_source=Magento&utm_medium=Website&utm_campaign=Pay%20Merchant), [Merchant FAQ](https://help.crypto.com/en/collections/1512001-crypto-com-pay-merchant-faq?utm_source=Magento&utm_medium=Website&utm_campaign=Pay%20Merchant) and [API Documentation](https://pay-docs.crypto.com/).
+* Open an issue if you are having troubles with this module.
