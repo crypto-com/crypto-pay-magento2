@@ -80,25 +80,25 @@ class CDCRedirect implements ObserverInterface
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://' . $item->invoice_endpoint);
 
-        // TBR
-        // curl_setopt($ch, CURLOPT_URL, 'https://webhook.site/683ec4bd-ffcf-4d69-9827-61c22b8851b5');
+        // To be removed - 
+        // curl_setopt($ch, CURLOPT_URL, '');
         curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        // TBR for testing
+        // To be removed - for testing
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         $result = curl_exec($ch);
 
-        // TBR for testing 2
+        // To be removed - for testing 2
         // $result2 = curl_error($ch);
 
         curl_close($ch);
 
-        // TBR for testing 3
+        // To be removed - for testing 3
         // throw new Exception('Test error: ' . $result . $result2);
 
         return ($result);
@@ -133,15 +133,17 @@ class CDCRedirect implements ObserverInterface
         $customer_details = (new \stdClass());
 
         $shipping_details = (new \stdClass());
-        $shipping_details->address = $order->getShippingAddress()->getStreet();;
+        $shipping_details->address = join(', ', $order->getShippingAddress()->getStreet()); // getStreet returns array
         $shipping_details->city = $order->getShippingAddress()->getCity();
+        $shipping_details->state = $order->getShippingAddress()->getRegion();
         $shipping_details->country = $order->getShippingAddress()->getCountryId();
         $shipping_details->postal_code = $order->getShippingAddress()->getPostcode();
         $shipping_details->phone = $order->getShippingAddress()->getTelephone();
 
         $billing_details = (new \stdClass());
-        $billing_details->address = $order->getBillingAddress()->getStreet();;
+        $billing_details->address = join(', ', $order->getBillingAddress()->getStreet());
         $billing_details->city = $order->getBillingAddress()->getCity();
+        $billing_details->state = $order->getBillingAddress()->getRegion();
         $billing_details->country = $order->getBillingAddress()->getCountryId();
         $billing_details->postal_code = $order->getBillingAddress()->getPostcode();
         $billing_details->phone = $order->getBillingAddress()->getTelephone();
@@ -188,28 +190,12 @@ class CDCRedirect implements ObserverInterface
             $params = (new \stdClass());
             $params->amount = ((float) $order['base_grand_total']) * 100;
             $params->currency = $order['base_currency_code']; //set as needed
-
-            #buyer email
-            $userSession = $this->_customerSession;
-
-            $buyerInfo = (new \stdClass());
-            
-            $buyerInfo->name = $order->getBillingAddress()->getFirstName() . ' ' . $order->getBillingAddress()->getLastName();
-            $buyerInfo->email = $order->getCustomerEmail();
-            $buyerInfo->plugin_name = $this->getExtensionVersion();
-          
-            #address info
-            $billingAddress = $order->getBillingAddress()->getData();
-            setcookie('buyer_email', $buyerInfo->email, time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_first_name', $order->getBillingAddress()->getFirstName() , time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_last_name', $order->getBillingAddress()->getLastName() , time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_street', $billingAddress['street'] , time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_city', $billingAddress['city'] , time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_postcode', $billingAddress['postcode'] , time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('buyer_telephone', $billingAddress['telephone'] , time() + (86400 * 30), "/"); // 86400 = 1 day
-
-            $params->metadata = $buyerInfo;
             $params->customer = $this->getCustomer($order);
+
+            $metadata = (new \stdClass());
+            $metadata->plugin_name = $this->getExtensionVersion();
+            $params->metadata = $metadata;
+            
             $params->order_id = trim($order_id_long);
 
             setcookie('oar_order_id', $order_id_long, time() + (86400 * 30), "/"); // 86400 = 1 day
@@ -231,7 +217,7 @@ class CDCRedirect implements ObserverInterface
 
     public function getExtensionVersion()
     {
-        return 'CDCCheckout_Magento2_0.1';
+        return 'CDCCheckout_Magento2_1.0';
     }
 
 }
