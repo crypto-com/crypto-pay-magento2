@@ -55,19 +55,20 @@
                 <field id="order_status" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1"
                     showInStore="0">
                     <label>New Order Status</label>
+                    <comment><![CDATA[Status of newly created order.]]></comment>
                     <source_model>Cdcpay\CDCCheckout\Model\Config\Source\Order\Status\Pendingpayment</source_model>
                 </field>
 
                 <field id="cdcpay_devtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Secret Key in Test Mode</label>
-                    <comment><![CDATA[Your secret key in <b>test mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a> and <b>uncheck</b> `Require Authentication`.]]></comment>
+                    <comment><![CDATA[Your secret key in <b>test mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>`.]]></comment>
                 </field>
 
                 <field id="cdcpay_prodtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Secret Key in Production Mode</label>
-                    <comment><![CDATA[Your secret key in <b>production mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a> and <b>uncheck</b> `Require Authentication`.]]></comment>
+                    <comment><![CDATA[Your secret key in <b>production mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>`.]]></comment>
                 </field>
 
                 <field id="cdcpay_testsignsecret" translate="label" type="text" sortOrder="10" showInDefault="1"
@@ -95,22 +96,6 @@
                     <source_model>Cdcpay\CDCCheckout\Model\Config\Source\Ipn</source_model>
                 </field>
                 
-                <field id="specificcountry" translate="label" type="multiselect" sortOrder="41" showInDefault="1"
-                    showInWebsite="1" showInStore="0">
-                    <label>Payment from Specific Countries</label>
-                    <source_model>Cdcpay\CDCCheckout\Model\Config\Source\Countries</source_model>
-                    <can_be_empty>0</can_be_empty>
-                </field>
-                <!--
-                <field id="instructions" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Instructions</label>
-                </field>
-                -->
-                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1"
-                    showInStore="0">
-                    <label>Sort Order</label>
-                    <frontend_class>validate-number</frontend_class>
-                </field>
             </group>
             <!-- payment-group -->
         </section>
