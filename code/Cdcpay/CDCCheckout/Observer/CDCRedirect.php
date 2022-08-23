@@ -197,11 +197,6 @@ class CDCRedirect implements ObserverInterface
             $params->metadata = $metadata;
             
             $params->order_id = trim($order_id_long);
-
-            setcookie('oar_order_id', $order_id_long, time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('oar_billing_lastname', $order->getBillingAddress()->getLastName(), time() + (86400 * 30), "/"); // 86400 = 1 day
-            setcookie('oar_email', $order->getCustomerEmail(), time() + (86400 * 30), "/"); // 86400 = 1 day
-
             $params->return_url = $this->getBaseUrl() .'cdcpay-invoice/?order_id='.$order_id_long;
             $params->cancel_url = $this->getBaseUrl() . 'rest/V1/cdcpay-cdccheckout/close?orderID='.$order_id_long;
 
