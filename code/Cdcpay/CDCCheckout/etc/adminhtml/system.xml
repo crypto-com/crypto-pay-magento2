@@ -62,13 +62,13 @@
                 <field id="cdcpay_devtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Secret Key in Test Mode</label>
-                    <comment><![CDATA[Your secret key in <b>test mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>`.]]></comment>
+                    <comment><![CDATA[Your secret key in <b>test mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
                 </field>
 
                 <field id="cdcpay_prodtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Secret Key in Production Mode</label>
-                    <comment><![CDATA[Your secret key in <b>production mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>`.]]></comment>
+                    <comment><![CDATA[Your secret key in <b>production mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
                 </field>
 
                 <field id="cdcpay_testsignsecret" translate="label" type="text" sortOrder="10" showInDefault="1"
