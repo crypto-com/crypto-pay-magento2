@@ -15,8 +15,8 @@ class Environment implements \Magento\Framework\Option\ArrayInterface
     public function toOptionArray()
     {
         return [
-            'test' => 'Test',
-            'prod' => 'Production',
+            'test' => 'Yes',
+            'prod' => 'No',
         ];
 
     }
