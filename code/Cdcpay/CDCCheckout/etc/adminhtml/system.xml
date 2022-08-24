@@ -62,31 +62,31 @@
                 <field id="cdcpay_devtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Secret Key in Test Mode</label>
-                    <comment><![CDATA[Your secret key in <b>test mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
+                    <comment><![CDATA[Your secret key in <b>Test Mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
                 </field>
 
                 <field id="cdcpay_prodtoken" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Secret Key in Production Mode</label>
-                    <comment><![CDATA[Your secret key in <b>production mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
+                    <label>Secret Key in Live Mode</label>
+                    <comment><![CDATA[Your secret key in <b>Live Mode</b>.  <a href = "https://merchant.crypto.com/" target = "_blank">Create one here</a>.]]></comment>
                 </field>
 
                 <field id="cdcpay_testsignsecret" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
                     <label>Webhook signature secret in Test Mode</label>
-                    <comment><![CDATA[Your webhook signature secret in <b>test mode</b>.  Your webhook url is `[Store URL]/rest/V1/cdcpay-cdccheckout/ipn`]]></comment>
+                    <comment><![CDATA[Your webhook signature secret in <b>Test Mode</b>.  Your webhook url is `[Store URL]/rest/V1/cdcpay-cdccheckout/ipn`]]></comment>
                 </field>
                 
                 <field id="cdcpay_prodsignsecret" translate="label" type="text" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Webhook signature secret in Production Mode</label>
-                    <comment><![CDATA[Your webhook signature secret in <b>production mode</b>.  Your webhook url is `[Store URL]/rest/V1/cdcpay-cdccheckout/ipn`]]></comment>
+                    <label>Webhook signature secret in Live Mode</label>
+                    <comment><![CDATA[Your webhook signature secret in <b>Live Mode</b>.  Your webhook url is `[Store URL]/rest/V1/cdcpay-cdccheckout/ipn`]]></comment>
                 </field>
 
                 <field id="cdcpay_endpoint" translate="label" type="select" sortOrder="10" showInDefault="1"
                     showInWebsite="1" showInStore="1">
-                    <label>Environment</label>
-                    <comment><![CDATA[Select <b>Test</b> for testing the plugin, <b>Production</b> when you are ready to go live.]]></comment>
+                    <label>Test Mode</label>
+                    <comment><![CDATA[Select <b>Yes</b> for testing the plugin, <b>No</b> when you are ready to go live.]]></comment>
                     <source_model>Cdcpay\CDCCheckout\Model\Config\Source\Environment</source_model>
                 </field>
 
