@@ -6,8 +6,8 @@
     "version":"6.13.0",
     "authors": [
         {
-            "email": "integrations@cdcpay.com",
-            "name": "Cdcpay"
+            "email": "pay@crypto.com",
+            "name": "Crypto.com Pay"
         }
     ],
     "minimum-stability": "dev",
